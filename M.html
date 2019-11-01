@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Charts</title>
+  <title>Fractions Calculator </title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,113 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/personal.css" rel="stylesheet">
 
+  <!-- custom javascript for the fractions calculations -->
+  <script type="text/javascript" src="js/math/fractions-calculator.js"></script>
+
+  <script>
+  function getNum1(){
+    return document.getElementById("num1").value; 
+  }
+
+  function getNum2(){
+    return document.getElementById("num2").value; 
+  }
+
+  function getDen1(){
+    return document.getElementById("den1").value; 
+  }
+
+  function getDen2(){
+    return document.getElementById("den2").value; 
+  }
+
+  function getOperator(){
+    var e = document.getElementById("operator"); 
+    return e.options[e.selectedIndex].value;
+
+  }
+
+  function calculateDen(){
+    return getDen1()*getDen2(); 
+  }
+
+  function simplify(n, d){
+    if(n == 0){
+      return 0; 
+    }else if(d == 0){
+      return "undefined"; 
+    }
+
+    var minimum = Math.min(n, d); 
+    for(i = minimum; i > 1; i--){ /*start with the biggest possible factor, don't include 1 */ 
+      if(minimum % i == 0){ /*if the minimum number (numerator or denominator) is divisible by i */
+        if(Math.max(n, d) % i == 0){ /*if the other number is divisible by i too */
+          if(n % d == 0){
+            return n/d; 
+          }else{
+            return n/i + "/" + d/i; 
+          }
+        }
+      }
+    }
+    
+    return n + "/" + d; 
+
+  }
+
+function subtract(){
+  var numerator = getNum1()*getDen2() - getNum2()*getDen1(); 
+  var denominator = calculateDen(); 
+  return simplify(numerator, denominator); 
+}
+
+function add(){
+  var numerator = getNum1()*getDen2() + getNum2()*getDen1(); 
+  var denominator = calculateDen(); 
+  return simplify(numerator, denominator); 
+}
+
+function multiply(){
+  var numerator = getNum1()*getNum2(); 
+  var denominator = calculateDen(); 
+  return simplify(numerator, denominator); 
+}
+
+function divide(){
+  var numerator = getNum1()*getDen2(); 
+  var denominator = getDen1()*getNum2(); 
+  return simplify(numerator, denominator); 
+}
+
+function calculateAnswer(){
+  document.getElementById("calculate").addEventListener('click', function(){
+    if(getOperator() == "add"){
+    	document.getElementById("answer").textContent = add(); 
+    }else if(getOperator() == "subtract"){
+		  document.getElementById("answer").textContent = subtract(); 
+    }else if(getOperator() == "multiply"){
+      document.getElementById("answer").textContent = multiply(); 
+    }else if(getOperator() == "divide"){
+      document.getElementById("answer").textContent = divide(); 
+    }
+  })
+}; 
+
+function erase(){
+  document.getElementById("num1").value = ""; 
+  document.getElementById("num2").value = ""; 
+  document.getElementById("den1").value = ""; 
+  document.getElementById("den2").value = ""; 
+  document.getElementById("answer").textContent = "nothing"; 
+}
+  
+  </script>
+
   <style>
+    #erase{
+      position: right; 
+    }
+
       .sidebar{
         overflow-y: scroll;
         overflow-x: hidden;
@@ -38,8 +144,8 @@
         transition: margin-left .5s;
       }
       
-      #toggled-content-wrapper{
-        margin-left: 50px; 
+      .toggled-content-wrapper{
+        margin-left: 15 px; 
       }
 
       .sidebar.toggled .nav-item .nav-link span {
@@ -115,11 +221,11 @@
             <li class="nav-item">
               <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw fa-wrench"></i>
-                <span>Math Resources</span>
+                <span style="color: white; " class="font-weight-bold">Math Resources</span>
               </a>
               <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="utilities-color.html">Fraction Calculator</a>
+                  <a style="color: #4e73df; font-weight: bold;" class="collapse-item" href="utilities-color.html">Fraction Calculator</a>
                   <a class="collapse-item" href="utilities-border.html">Fraction Converter</a>
                 </div>
               </div>
@@ -357,8 +463,8 @@
 
           <!-- Page Heading -->
           <h1 class="h3 mb-2 text-gray-800">Math Resources</h1>
-          <p class="mb-4">Use this fraction calculator to add, subtract, multiply, and divide proper or improper fractions. <a target="_blank" href="https://www.chartjs.org/docs/latest/">official Chart.js documentation</a>.</p>
-
+          <p class="mb-4">Use this fraction calculator to add, subtract, multiply, and divide proper or improper fractions.
+            
           <!-- Content Row -->
           <div class="row">
 
@@ -417,14 +523,14 @@
                   
                   <div class="footer">
                     <span>
-                      <button class="calculation" id="calculate"> calculate </button>
-                      <button class="calculation" id="erase"> erase </button>
+                      <button onclick="calculateAnswer()" class="calculation" id="calculate"> calculate </button>
+                      <button onclick="erase()" class="calculation" id="erase"> erase </button>
                     </span>
                     <div class="answer">
                       <span> Answer: </span>
-                      <textarea>
-                        
-                      </textarea>
+                      <span id="answer">
+                        nothing
+                      </span>
                     </div>
 
                   </div>
@@ -501,9 +607,6 @@
   <!-- Page level custom scripts -->
   <script src="js/demo/chart-area-demo.js"></script>
 
-  <!-- custom javascript for the fractions calculations -->
-
-  <script src="js/math/fractions-calculator.js"></script>
 
 </body>
 

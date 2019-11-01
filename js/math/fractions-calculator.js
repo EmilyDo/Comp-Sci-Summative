@@ -1,3 +1,5 @@
+alert("testing"); 
+
 function getNum1(){
   return document.getElementById("num1").innerText; 
 }
@@ -62,19 +64,27 @@ function divide(){
   return simplify(numerator, denominator); 
 }
 
+
+
 function calculateAnswer(){
-  if(getElementById("calculate").addEventListener('click',function(){
-    if(getOperator() == "+"){
-      return add(); 
-    }else if(getOperator() == "-"){
-      return subtract(); 
-    }else if(getOperator() == "×"){
+	alert("testing"); /*doesnt work*/
+  if(document.getElementById("calculate").addEventListener('click',function(){
+	  window.alert("the calculate button was clicked"); 
+    if(getOperator() == "add"){
+    	document.getElementById("answer") = add(); 
+    }else if(getOperator() == "subtract"){
+		document.getElementById("answer") = subtract(); 
+    }else if(getOperator() == "multiply"){
       return multiply(); 
-    }else if(getOperator() == "÷"){
+    }else if(getOperator() == "divide"){
       return divide(); 
     }
   }))
 }
+  
+
+
+
 
 /*function setfocus() {
 	document.calcform.x.focus();
