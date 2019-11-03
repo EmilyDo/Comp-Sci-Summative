@@ -18,6 +18,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/personal.css" rel="stylesheet">
+  <link href="css/personal2.css" rel="stylesheet">
 
   <!-- custom javascript for the fractions calculations -->
   <script type="text/javascript" src="js/math/fractions-calculator.js"></script>
@@ -27,22 +28,58 @@
     return document.getElementById("num1").value; 
   }
 
-  function getNum2(){
-    return document.getElementById("num2").value; 
-  }
-
   function getDen1(){
     return document.getElementById("den1").value; 
   }
 
-  function getDen2(){
-    return document.getElementById("den2").value; 
-  }
-
-  function getOperator(){
-    var e = document.getElementById("operator"); 
+  function getType1(){
+    var e = document.getElementById("dropdown1"); 
     return e.options[e.selectedIndex].value;
 
+  }
+
+  function getType2(){
+    var e = document.getElementById("dropdown2"); 
+    return e.options[e.selectedIndex].value;
+
+  }
+
+  function show(){
+    var type1 = getType1(); 
+    var type2 = getType2(); 
+    if(type1 == "fraction"){
+      document.getElementById("ratio1").style.display="none"; 
+      document.getElementById("percentage1").style.display="none"; 
+      document.getElementById("decimal1").style.display="none"; 
+      document.getElementById("fraction1").style.display="inherit"; 
+    }else if(type1 == "ratio"){
+      document.getElementById("fraction1").style.display="none"; 
+      document.getElementById("percentage1").style.display="none"; 
+      document.getElementById("decimal1").style.display="none"; 
+      document.getElementById("ratio1").style.display="inherit"; 
+
+    }else if(type1 == "percentage"){
+      document.getElementById("ratio1").style.display="none"; 
+      document.getElementById("fraction1").style.display="none"; 
+      document.getElementById("decimal1").style.display="none"; 
+      document.getElementById("percentage1").style.display="inherit"; 
+
+    }else if(type1 == "decimal"){
+      document.getElementById("ratio1").style.display="none"; 
+      document.getElementById("fraction1").style.display="none"; 
+      document.getElementById("percentage1").style.display="none"; 
+      document.getElementById("decimal1").style.display="inherit"; 
+    }
+
+    if(type2 == "fraction"){
+
+    }else if(type2 == "ratio"){
+
+    }else if(type2 == "percentage"){
+  
+    }else if(type2 == "decimal"){
+  
+    }
   }
 
   function calculateDen(){
@@ -98,6 +135,7 @@ function divide(){
 }
 
 function calculateAnswer(){
+  document.getElementById("calculate").addEventListener('click', function(){
     if(getOperator() == "add"){
     	document.getElementById("answer").textContent = add(); 
     }else if(getOperator() == "subtract"){
@@ -107,6 +145,7 @@ function calculateAnswer(){
     }else if(getOperator() == "divide"){
       document.getElementById("answer").textContent = divide(); 
     }
+  })
 }; 
 
 function erase(){
@@ -120,10 +159,6 @@ function erase(){
   </script>
 
   <style>
-    #erase{
-      position: right; 
-    }
-
       .sidebar{
         overflow-y: scroll;
         overflow-x: hidden;
@@ -471,67 +506,51 @@ function erase(){
               <!-- Area Chart -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3"> 
-                  <h6 class="m-0 font-weight-bold text-primary">Fraction Calculator</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Fraction Converter</h6>
                 </div>
-                <div class="card-body">
+                <div id="converter-body" class="card-body">
                     <!-- Calculator -->
 
 <!-- BLA BLA BLA-->
 
-                    <div class="calculator">
-                        <div class="box">
-                          <div class="fraction">
-                            <div class="section">
-                              <div class="box borderBottom_1">
-                                  <input name="num1" id="num1" size="25" value="" class="int" type="text" required="">
-                                </div>
-                              </div>
-                              <div class="section">
-                                <div class="box">
-                                  <input name="den1" id="den1" size="25" value="" class="int" type="text" required="">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="box operations">
-                          <select name="operator" id="operator" class="operator" size="1">
-                            <option value="add" selected="selected">+</option>
-                            <option value="subtract">−</option>
-                            <option value="multiply">×</option>
-                            <option value="divide">÷</option>
-                          </select>
-                        </div>
-                        <div class="box">
-                          <div class="fraction">
-                            <div class="section">
-                              <div class="box borderBottom_1">
-                                <input name="num2" id="num2" size="25" value="" class="int" type="text" required="">
-                              </div>
-                            </div>
-                            <div class="section">
-                              <div class="box">
-                                <input name="den2" id="den2" size="25" value="" class="int" type="text" required="">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                  <select name="type" id="dropdown1" class="top center operator left" size="1">
+                    <option onclick="change()" value="fraction" selected="selected">fraction</option>
+                    <option onclick="change()" value="ratio">ratio</option>
+                    <option onclick="change()" value="percentage">percentage</option>
+                    <option onclick="change()" value="decimal">decimal</option>
+                  </select>
+             
+                  <div id="fraction1" class="center middle left fraction-container">
+                    <input size="25" value="" class="int top-fraction center" type="text">
+
+                    <svg class="center top line" width="300px" height="5px" viewBox="0 0 200 5">
+                      <line x1="-30" y1="0" x2="230" y2="0" style="stroke: grey; stroke-width:5px;"></line>
+                    </svg>
+
+                    <input size="25" value="" class="int bottom-fraction center" type="text">
+                  </div>
+
+                  <span class="middle center sign" id="equals"> = </span>
+
+                  <select name="type" id="dropdown2" class="top operator center right" size="1">
+                    <option value="fraction">fraction</option>
+                    <option value="ratio" selected="selected">ratio</option>
+                    <option value="percentage">percentage</option>
+                    <option value="decimal">decimal</option>
+                  </select>
+
+                  <div id="ratio1" class="center middle right ratio-container">
+                    <input size="12" value="" class="int left-fraction center" type="text">
+                    <span class="sign left center" id="ratio"> : </span>
+                    <input size="12" value="" class="int right-fraction center" type="text"> 
+                  </div>
+  
+                  <button id="convert-button" onclick="calculateAnswer()" class="bottom calculation left"> convert </button>
+                  <button onclick="erase()" class="bottom calculation right" id="erase"> erase </button>
+                    
 
 <!-- BLA BLA BLA-->
                   
-                  <div class="footer">
-                    <span>
-                      <button onclick="calculateAnswer()" class="calculation" id="calculate"> calculate </button>
-                      <button onclick="erase()" class="calculation" id="erase"> erase </button>
-                    </span>
-                    <div class="answer">
-                      <span> Answer: </span>
-                      <span id="answer">
-                        nothing
-                      </span>
-                    </div>
-
-                  </div>
                 </div>
               </div>
 
