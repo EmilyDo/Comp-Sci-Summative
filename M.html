@@ -18,6 +18,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/personal.css" rel="stylesheet">
+  <link href="css/personal3.css" rel="stylesheet">
 
   <!-- custom javascript for the fractions calculations -->
   <script type="text/javascript" src="js/math/fractions-calculator.js"></script>
@@ -473,27 +474,19 @@ function erase(){
                 <div class="card-header py-3"> 
                   <h6 class="m-0 font-weight-bold text-primary">Fraction Calculator</h6>
                 </div>
-                <div class="card-body">
+                <div id="container-body"class="card-body">
                     <!-- Calculator -->
 
 <!-- BLA BLA BLA-->
 
-                    <div class="calculator">
-                        <div class="box">
-                          <div class="fraction">
-                            <div class="section">
-                              <div class="box borderBottom_1">
-                                  <input name="num1" id="num1" size="25" value="" class="int" type="text" required="">
-                                </div>
-                              </div>
-                              <div class="section">
-                                <div class="box">
-                                  <input name="den1" id="den1" size="25" value="" class="int" type="text" required="">
-                              </div>
-                            </div>
+                          <div class="full-width middle left fraction center">
+                              <input name="num1" id="num1" size="20" value="" class="int" type="text" required="">
+                              <svg class="center top line" width="300px" height="5px" viewBox="0 0 200 5">
+                                <line x1="0" y1="0" x2="200" y2="0" style="stroke: grey; stroke-width:5px;"></line>
+                              </svg>
+                              <input name="den1" id="den1" size="20" value="" class="int" type="text" required="">
                           </div>
-                        </div>
-                        <div class="box operations">
+                        <div class="middle box middlemiddle center operations">
                           <select name="operator" id="operator" class="operator" size="1">
                             <option value="add" selected="selected">+</option>
                             <option value="subtract">−</option>
@@ -501,30 +494,20 @@ function erase(){
                             <option value="divide">÷</option>
                           </select>
                         </div>
-                        <div class="box">
-                          <div class="fraction">
-                            <div class="section">
-                              <div class="box borderBottom_1">
-                                <input name="num2" id="num2" size="25" value="" class="int" type="text" required="">
-                              </div>
-                            </div>
-                            <div class="section">
-                              <div class="box">
-                                <input name="den2" id="den2" size="25" value="" class="int" type="text" required="">
-                              </div>
-                            </div>
+                          <div class="full-width middle right fraction center">
+                              <input name="num2" id="num2" size="20" value="" class="int" type="text" required="">
+                              <svg class="center top line" width="300px" height="5px" viewBox="0 0 200 5">
+                                <line x1="0" y1="0" x2="200" y2="0" style="stroke: grey; stroke-width:5px;"></line>
+                              </svg>
+                              <input name="den2" id="den2" size="20" value="" class="int" type="text" required="">
                           </div>
-                        </div>
-                      </div>
 
 <!-- BLA BLA BLA-->
-                  
-                  <div class="footer">
-                    <span>
-                      <button onclick="calculateAnswer()" class="calculation" id="calculate"> calculate </button>
-                      <button onclick="erase()" class="calculation" id="erase"> erase </button>
-                    </span>
-                    <div class="answer">
+
+                      <button onclick="calculateAnswer()" class="calculation left top" id="calculate"> calculate </button>
+                      <button onclick="erase()" class="calculation right top" id="erase"> erase </button>
+ 
+                    <div class="bottom left center answer">
                       <span> Answer: </span>
                       <span id="answer">
                         nothing
@@ -533,10 +516,10 @@ function erase(){
 
                   </div>
                 </div>
+
+
+
               </div>
-
-              
-
             </div>
 
       <!-- Deleted Donut chart -->
@@ -545,8 +528,6 @@ function erase(){
 
         </div>
         <!-- /.container-fluid -->
-
-      </div>
       <!-- End of Main Content -->
 
       <!-- Footer -->
@@ -558,7 +539,7 @@ function erase(){
         </div>
       </footer>
       <!-- End of Footer -->
-
+      </div>
     </div>
     <!-- End of Content Wrapper -->
 

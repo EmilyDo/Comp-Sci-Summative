@@ -559,8 +559,8 @@ pre code {
   margin-left: auto;
 }
 
-col-xl-8ia (min-width: 576px) {
-  .container {
+@media (min-width: 576px) {
+  col-xl-8ia .container {
     max-width: 540px;
   }
 }
