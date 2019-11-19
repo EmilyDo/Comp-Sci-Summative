@@ -19,7 +19,7 @@
 
 .expand{
   position: fixed;
-  height: 67%;
+  height: 75%;
   z-index: 1;
 }
 
@@ -36,6 +36,9 @@
 }
 
 @media (max-width: 502px) {
+  #sidebarToggleTop{
+    display: none; 
+  }
 
   #phone-bar{
     width: 100%;
@@ -100,6 +103,10 @@
   .menu-toggle {
     display: inline-block;
     cursor: pointer;
+  }
+
+  #phone-bar .toggled{
+    margin-top: 0rem; 
   }
 
   .menu-toggle div{

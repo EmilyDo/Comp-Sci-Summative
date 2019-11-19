@@ -2,54 +2,6 @@
 * mainly for the fractions converter
  */
 
- 
-@media (min-width: 1200px) {
-  .container {
-    max-width: 1140px;
-  }
-}
-
-
-/*changing the grid layout for phones*/
-@media (max-width: 866px){
-  input{
-    size:20;
-  }
-
-  .ratio-container{
-    display:grid; 
-    grid-template-columns: [c1] 40% [c2] 20% [c3] 40% [c4]; 
-    min-width: 100%; 
-  }
-
-  .calculation{
-    max-width: 8rem; 
-  }
-  
-  .sign{
-    font-size: 2.5rem; 
-  }
-  
-  #converter-body{
-    display:grid; 
-    grid-template-columns: [c1] 5% [c2] 39% [c3] 12% [c4] 39% [c5] 5% [c6]; 
-  }
-  
-  .operator{
-    max-width: 5em; 
-  }
-
-}
-
-@media (max-width: 502px){  
-  input{
-    size:10;
-  }
-}
-/*end of grid layout changes*/ 
-
-
-
 .ratio-container{
   display:grid; 
   grid-template-columns: [c1] 45% [c2] 10% [c3] 45% [c4]; 
@@ -157,3 +109,66 @@
   max-width: 7em; 
 }
 
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+
+/*changing the grid layout for phones*/
+
+
+@media (max-width: 980px){
+  input{
+    width:100px;
+  }
+  svg{
+    width: 110px; 
+  }
+
+  .calculation{
+    max-width: 8rem; 
+  }
+  
+  .sign{
+    font-size: 2.5rem; 
+  }
+  
+  #converter-body{
+    display:grid; 
+    grid-template-columns: [c1] 1% [c2] 43% [c3] 12% [c4] 43% [c5] 1% [c6]; 
+  }
+  
+  .operator{
+    max-width: 5em; 
+  }
+
+}
+
+@media (max-width: 600px){
+  #converter-body{
+    display:grid; 
+    grid-template-columns: [c1] 1% [c2] 44% [c3] 12% [c4] 44% [c5] 1% [c6]; 
+  }
+  input{
+    width:80px;
+  }
+  svg{
+    width: 90px; 
+  }
+}
+
+@media (max-width: 502px){  
+  input{
+    width:55px;
+  }
+  svg{
+    width: 60px; 
+  }
+  #converter-body{
+    display:grid; 
+    grid-template-columns: [c1] 1% [c2] 48% [c3] 10% [c4] 48% [c5] 1% [c6]; 
+  }
+}
+/*end of grid layout changes*/ 

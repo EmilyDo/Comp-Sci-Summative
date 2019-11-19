@@ -19,6 +19,7 @@
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/personal.css" rel="stylesheet">
   <link href="css/personal3.css" rel="stylesheet">
+  <link href="css/phone.css" rel="stylesheet">
 
   <!-- custom javascript for the fractions calculations -->
   <script type="text/javascript" src="js/math/fractions-calculator.js"></script>
@@ -51,10 +52,10 @@
   }
 
   function simplify(n, d){
-    if(n == 0){
-      return 0; 
-    }else if(d == 0){
+    if(d == 0){
       return "undefined"; 
+    }else if(n == 0){
+      return 0; 
     }
 
     var minimum = Math.min(n, d); 
@@ -117,7 +118,19 @@ function erase(){
   document.getElementById("den2").value = ""; 
   document.getElementById("answer").textContent = "nothing"; 
 }
-  
+
+function toggleMenu(x) {
+    x.classList.toggle("toggled");
+    document.getElementById("container").classList.toggle("phone-container"); 
+    document.getElementById("phone-bar").classList.toggle("expand"); 
+}
+
+function show(){
+  document.getElementById("menu-toggle-button").addEventListener("click", function(){
+      document.getElementById("dropdown").classList.toggle("show");
+  }); 
+}
+
   </script>
 
   <style>
@@ -168,7 +181,7 @@ function erase(){
 
 </head>
 
-<body id="page-top">
+<body onload="show()" id="page-top">
 
   <!-- Page Wrapper -->
   <div id="wrapper">
@@ -275,7 +288,33 @@ function erase(){
       <div id="content">
 
         <!-- Topbar -->
-        <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+        <nav id="phone-bar" class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" >
+
+          <!--BLABLABLA-->
+          <div id="menu-toggle-button" class="menu-toggle" onclick="toggleMenu(this)">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+          <div id="dropdown"> 
+            <ul class="menuInner">
+              <div></div>
+              <li><a href="" target="_blank">Welcome</a></li>
+              <span>Students</span>
+              <li><a href="" target="_blank">Calendar</a></li>
+              <li><a href="" target="_blank">Staff Directory</a></li>
+              <li><a href="" target="_blank">Attendance</a></li>
+              <li><a href="" target="_blank">Fractions Converter</a></li>
+              <li><a href="" target="_blank">Fractions Calculator</a></li>
+              <li><a href="" target="_blank">Bonus Problem</a></li>
+              <span>Teachers</span>
+              <li><a href="" target="_blank">Attendance</a></li>
+              <li><a href="" target="_blank">Staff Payment Portal </a></li>
+            </ul>
+          </div>
+                  
+          <!--BLABLABLA-->
 
           <!-- Sidebar Toggle (Topbar) -->
           <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
