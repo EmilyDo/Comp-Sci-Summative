@@ -37,7 +37,7 @@
     }else if(type1 == "ratio"){
       return document.getElementById("ratio1-1").value; 
     }else if(type1 == "percentage"){
-      return document.getElementById("percentage-1").value; 
+      return document.getElementById("percentage1-1").value; 
     }else if(type1 == "decimal"){
       return document.getElementById("decimal1-1").value; 
     }
@@ -165,41 +165,45 @@ function convertFraction(){
     }
 }; 
 
-function simplify(n, d){
-    if(n == 0){
-      n = 0; 
-    }else if(d == 0){
-      n = "undefined"; 
+function simplify(a, b){
+   if(b == 0){
+      a = "undefined"; 
+      return; 
     }
-    var minimum = Math.min(n, d); 
+    var minimum = Math.min(a, b); 
     for(i = minimum; i > 1; i--){ /*start with the biggest possible factor, don't include 1 */ 
       if(minimum % i == 0){ /*if the minimum number (numerator or denominator) is divisible by i */
-        if(Math.max(n, d) % i == 0){ /*if the other number is divisible by i too */
-          if(n % d == 0){
-            n = n/d; 
-            d = 1; 
+        if(Math.max(a, b) % i == 0){ /*if the other number is divisible by i too */
+          if((a >= b) && (a%b == 0)){
+            a = a/b; 
+            b = 1; 
+            break; 
+
           }else{
-            n = n/i; 
-            d = d/i; 
+            a = a/i; 
+            b = b/i; 
+            break; 
           }
         }
       }
     }
-    n = n; 
-    d = d;
+    n = a; 
+    d = b;
   }
 
 function convertDecimal(){
   n = Math.round(getNum1()*100000); 
   d = 100000; 
+  
     if(getType2() == "ratio"){
       simplify(n, d); 
-    	document.getElementById("ratio2-1").value = n(); 
-    	document.getElementById("ratio2-2").value = d(); 
+      document.getElementById("ratio2-1").value = n; 
+    	document.getElementById("ratio2-2").value = d; 
+
     }else if(getType2() == "fraction"){
       simplify(n, d); 
-    	document.getElementById("fraction2-1").value = n(); 
-      document.getElementById("fraction2-2").value = d();     
+    	document.getElementById("fraction2-1").value = n; 
+      document.getElementById("fraction2-2").value = d;     
     }else if(getType2() == "decimal"){
       document.getElementById("decimal2-1").value = getNum1(); 
     }else if(getType2() == "percentage"){
@@ -220,11 +224,12 @@ function convertRatio(){
     }
 }; 
 function convertPercentage(){
-  n = Math.round(getNum1()*1000); 
+
+  n = getNum1()*1000; 
   d = 100000; 
     if(getType2() == "ratio"){
-      alert("ratio is the second");
-      simplify(n, d); 
+      simplify(n, d);
+ 
     	document.getElementById("ratio2-1").value = n; 
     	document.getElementById("ratio2-2").value = d;  
     }else if(getType2() == "fraction"){
@@ -268,12 +273,14 @@ function erase(){
 }
   /*function for toggling phone menu*/ 
   function toggleMenu(x) {
-    x.classList.toggle("toggled");
+    x.classList.toggle("toggled-phone");
     document.getElementById("container").classList.toggle("phone-container"); 
     document.getElementById("phone-bar").classList.toggle("expand"); 
   }
 
-
+  function moveBody(){
+    document.getElementById("content-wrapper").classList.toggle("toggled-content-wrapper"); 
+  }
   </script>
 
   <style>
@@ -296,7 +303,7 @@ function erase(){
       }
       
       .toggled-content-wrapper{
-        margin-left: 15 px; 
+        margin-left: 100px !important; 
       }
 
       .sidebar.toggled .nav-item .nav-link span {
@@ -304,10 +311,7 @@ function erase(){
       }
 
       @media (min-width: 768px) {
-        .sidebar.toggled .nav-item .nav-link {
-          padding-top: 1rem !important; 
-          padding-bottom: 1rem !important; 
-        }
+        
       }
 
       .col-xl-8 {
@@ -342,7 +346,7 @@ function erase(){
   <!-- Nav Item - Dashboard -->
   <li class="nav-item">
     <a class="nav-link" href="index.html">
-      <i class="fas fa-fw fa-tachometer-alt"></i>
+        <i class="fas fa-fw fa-home"></i>
       <span class="hidden-label">Welcome</span></a>
   </li>
 
@@ -351,23 +355,27 @@ function erase(){
 
   <!-- Heading -->
   <div class="sidebar-heading">
-    Interface
+    Students
   </div>
 
   <!-- Nav Item - Pages Collapse Menu -->
 
        <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Attendance</span></a>
-      </li>
-  
-      <li class="nav-item">
-          <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Staff Directory</span></a>
-        </li>
+       <li class="nav-item">
+        <a class="nav-link" href="index.html">
+          <i class="far fa-fw  fa-calendar-times"></i>
+        <span>Calendar</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">
+      <i class="fas fa-fw  fa-search"></i>            
+        <span>Staff Directory</span></a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="index.html">
+        <i class="fas fa-fw fa-clipboard-list"></i>
+        <span>Attendance</span></a>
+    </li>
   
         <li class="nav-item">
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
@@ -376,15 +384,15 @@ function erase(){
           </a>
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
-              <a style="color: #4e73df; font-weight: bold;" class="collapse-item" href="utilities-color.html">Fraction Calculator</a>
-              <a class="collapse-item" href="utilities-border.html">Fraction Converter</a>
+              <a class="collapse-item" href="utilities-color.html">Fraction Calculator</a>
+              <a style="color: #4e73df; font-weight: bold;" class="collapse-item" href="utilities-border.html">Fraction Converter</a>
             </div>
           </div>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="index.html">
-              <i class="fas fa-fw fa-tachometer-alt"></i>
+                <i class="fas fa-fw fa-plus"></i>
               <span>Bonus Problem</span></a>
           </li>
   
@@ -399,14 +407,14 @@ function erase(){
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
           <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
+              <i class="fas fa-fw fa-clipboard-list"></i>
             <span>Attendance</span></a>
         </li>
         
         <li class="nav-item">
           <a class="nav-link" href="index.html">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-            <span>Staff Portal</span></a>
+              <i class="fas fa-fw fa-dollar-sign"></i>
+              <span>Staff Payment Portal</span></a>
         </li>
 
   <!-- Divider -->
@@ -414,7 +422,7 @@ function erase(){
 
   <!-- Sidebar Toggler (Sidebar) -->
   <div class="text-center d-none d-md-inline">
-    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    <button class="rounded-circle border-0" id="sidebarToggle" onclick="moveBody()"></button>
   </div>
 
 </ul>
@@ -494,23 +502,23 @@ function erase(){
                   </select>
              
                   <div id="fraction1" class="center middle left fraction-container">
-                    <input id="fraction1-1" size="25" value="" class="int top-fraction center" type="text">
+                    <input id="fraction1-1" size="20" value="" class="int top-fraction center" type="text">
                     <svg class="center top line" width="300px" height="5px" viewBox="0 0 200 5">
                       <line x1="-30" y1="0" x2="230" y2="0" style="stroke: grey; stroke-width:5px;"></line>
                     </svg>
-                    <input id="fraction1-2" size="25" value="" class="int bottom-fraction center" type="text">
+                    <input id="fraction1-2" size="20" value="" class="int bottom-fraction center" type="text">
                   </div>
 
                   <div id="percentage1" style="display: none;" class="center middle left">
                     <div class="center">
-                      <input id="percentage1-1" size="25" value="" class="int" type="text">
+                      <input id="percentage1-1" size="20" value="" class="int" type="text">
                       <span class="sign">%</span>
                     </div>
                   </div>
 
                   <div id="decimal1" style="display: none;" class="center middle left">
                     <div class="center">
-                      <input id="decimal1-1" size="25" value="" class="int" type="text">
+                      <input id="decimal1-1" size="20" value="" class="int" type="text">
                     </div>
                   </div>
 
@@ -536,23 +544,23 @@ function erase(){
                   </div>
   
                   <div id="fraction2" class="center middle right fraction-container">
-                    <input id="fraction2-1" size="25" value="" class="int top-fraction center" type="text">
+                    <input id="fraction2-1" size="20" value="" class="int top-fraction center" type="text">
                     <svg class="center top line" width="300px" height="5px" viewBox="0 0 200 5">
                       <line x1="-30" y1="0" x2="230" y2="0" style="stroke: grey; stroke-width:5px;"></line>
                     </svg>
-                    <input id="fraction2-2" size="25" value="" class="int bottom-fraction center" type="text">
+                    <input id="fraction2-2" size="20" value="" class="int bottom-fraction center" type="text">
                   </div>
 
                   <div id="percentage2" style="display: none;" class="center middle right">
                     <div class="center">
-                      <input id="percentage2-1" size="25" value="" class="int" type="text">
+                      <input id="percentage2-1" size="20" value="" class="int" type="text">
                       <span class="sign">%</span>
                     </div>
                   </div>
 
                   <div id="decimal2" style="display: none;" class="center middle right">
                     <div class="center">
-                      <input id="decimal2-1" size="25" value="" class="int" type="text">
+                      <input id="decimal2-1" size="20" value="" class="int" type="text">
                     </div>
                   </div>
 

@@ -1,6 +1,12 @@
 /*
 * mainly for the fractions calculator and converter
  */
+.same-button * #sidebarToggle::after {
+  content: '\f105';
+  font-family: 'Font Awesome 5 Free';
+  margin-left: 0.25rem;
+
+}
 
 
 .card-body{

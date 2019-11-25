@@ -8,9 +8,9 @@
 
  
 
-.toggled{
+.toggled-phone{
   position:absolute;
-  top: 10px;
+  top: 3%;
 }
 
 .phone-container{
@@ -119,16 +119,16 @@
   }
 
   /*this is the new class that's added to the divs when toggleMenu function is called */
-  .toggled div:nth-child(1){
+  .toggled-phone div:nth-child(1){
     -webkit-transform: rotate(-45deg) translate(-7px, 3px);
     transform: rotate(-45deg) translate(-7px, 3px);
   }
-  .toggled div:nth-child(2){
+  .toggled-phone div:nth-child(2){
     right: 50px; 
     opacity: 0;
     transition: .25s ease-in-out;
   }
-  .toggled div:nth-last-child(1){
+  .toggled-phone div:nth-last-child(1){
     -webkit-transform: rotate(45deg) translate(-10px, -8px);
     transform: rotate(45deg) translate(-10px, -8px);
   }
