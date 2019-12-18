@@ -51,7 +51,7 @@ if(isset($_POST['signup-submit'])){ /*checking if the button nammed "signup-subm
         else{ /*testing for matching usernames, whether the username is already taken*/ 
             mysqli_stmt_bind_param($statement, "s", $username);   
             mysqli_stmt_execute($statement);              
-            mysqli_stmt_store_result($statement); /*fetching information from teh database*/ 
+            mysqli_stmt_store_result($statement); /*fetching information from the database*/ 
             $resultCheck = mysqli_stmt_num_rows($statement); /*should either be 0 or 1*/ 
             if($resultCheck > 0){
                 header("Location: ../php/login-scratch.php?error=usertaken&email=".$email); 
@@ -68,7 +68,7 @@ if(isset($_POST['signup-submit'])){ /*checking if the button nammed "signup-subm
 /*hashing password*/ 
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT); 
 
-                    mysqli_stmt_bind_param($statement, "sss", $username, $email, $hashedPwd);   /* 3 sss this time because inside our sql varialbe we have 3 placeholders (?, ?, ?)*/ 
+                    mysqli_stmt_bind_param($statement, "sss", $username, $email, $hashedPwd);   /* 3 sss this time because inside our sql variable we have 3 placeholders (?, ?, ?)*/ 
                     /* the password is hashed for security reasons */
                     mysqli_stmt_execute($statement);              
                     header("Location: ../php/login-scratch.php?signup=success"); 
