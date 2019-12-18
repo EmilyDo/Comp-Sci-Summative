@@ -9,7 +9,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>SB Admin 2 - Other Utilities</title>
+  <title>Attendance</title>
 
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -18,6 +18,7 @@
   <!-- Custom styles for this template-->
   <link href="css/sb-admin-2.min.css" rel="stylesheet">
   <link href="css/personal-attendance.css" rel="stylesheet">
+  <link href="css/attendance-teacher.css" rel="stylesheet">
 
 </head>
 
@@ -342,12 +343,12 @@
             <div class="col-lg-6">
 
               <!-- Progress Small -->
-              <div class="card mb-4">
+              <div id="attendance-card" class="card mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary">Progress Small Utility</h6>
+                  <h6 class="m-0 font-weight-bold text-primary">Take Attendance</h6>
                 </div>
                 <div class="card-body">
-                  <div class="mb-1 small">Normal Progress Bar</div>
+                  <div class="mb-1 small">Present Bar</div>
                   <div class="progress mb-4">
                     <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
                   </div>
@@ -355,14 +356,52 @@
 
                   <!--BLABLABLABLA-->
 
-                  <div id="attendance-container">
+                  <div id="">
 
+                    <table> 
+                      <thead> 
+                        <tr> 
+                          <th> First Name </th>
+                          <th> Last Name </th>
+                          <th> Email </th>
+                          <th>  </th>
+                          <th>  </th>
+                          <th>  </th>
+                        </tr>
+                      </thead>
+
+                        <?php 
+                          $conn = mysqli_connect("localhost", "root", "", "loginsystemteacher"); 
+                          
+                          if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                          }
+                          $sql = "SELECT firstName, lastName, email from attendanceHere"; 
+                          $result = $conn -> query($sql); 
+                          if($result-> num_rows > 0){
+                            while($row = $result -> fetch_assoc()){
+                              echo '<tr><td>'.$row["firstName"] .'</td><td>'.$row["lastName"] .'</td>
+                              <td>'.$row["email"] .'</td><td><button type="button" class="first button">Here</button></td>
+                              <td><button class="button">Absent</button></td><td><button class="button">Late</button></td>
+                              </tr>'; 
+                            }
+                            echo "</table>"; 
+                          }else{
+                            echo "0 result"; 
+                          }
+                          $conn-> close(); 
+                        ?>
+
+
+                    </table>
+
+ <!--
                     <p class="left top"> Elizabeth Li</p>
                     <p class="left second"> Emily Du</p>
                     <p class="left third"> Old Man</p>
                     <p class="left fourth"> Douche Bag</p>
 
-                    <button class="first-button top">Here</button>
+                    <button type="button" class="button btn first-button top">Here</button>
                     <button class="second-button top">Absent</button>
                     <button class="right top">Late</button>                    
                     <button class="first-button second">Here</button>
@@ -374,7 +413,7 @@
                   
 
                   </div>
-
+BLABLABLA-->
                   <!--BLABLABLA-->
 
                 </div>

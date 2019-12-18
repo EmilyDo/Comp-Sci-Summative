@@ -13,6 +13,10 @@ if(isset($_POST['signin-submit'])){
             header("Location: ../php/attendance-student.php?error=emptyfields&email=".$email); 
             exit(); 
         }
+        elseif(!(date('D', getdate()) === 'Wed' && date('D', getdate()) === 'Mon')){
+            header("Location: ../php/attendance-student.php?error=wrongdate"); 
+            exit(); 
+        }
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) || strpos($email, '@ocdsb.ca') == false){ 
             header("Location: ../php/attendance-student.php?error=invalidemail"); 
             exit(); 
@@ -31,19 +35,22 @@ if(isset($_POST['signin-submit'])){
                 $resultCheck = mysqli_stmt_num_rows($statement);  
                 if($resultCheck <= 0){
                     header("Location: ../php/attendance-student.php?error=invaliduser"); 
+                    ?> 
+
+                    <?php
                     exit();    
                 }
                 else{
 
-                    $query = "SELECT id, firstName, lastName FROM 'attendance' where email='$email'"; 
+                    $query = "SELECT * FROM 'attendance' where email='$email'"; 
                     $query_run = mysqli_query($conn, $query); 
 
-                     while($row = mysqli_fetch_assoc($query_run)){
+                    while($row = mysqli_fetch_array($query_run)){
                         $id = $row['id']; 
                         $first = $row['firstName']; 
                         $last = $row['lastName']; 
-                    }
 
+                    }
 
                     
                     $sql = "INSERT INTO attendancehere (id, firstName, lastName, email) VALUES (?, ?, ?, ?)";  
