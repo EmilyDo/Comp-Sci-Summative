@@ -18,27 +18,6 @@ if(isset($_POST['signup-submit'])){ /*checking if the button nammed "signup-subm
 /*1. checking if all text inputs is empty or not*/
     if(empty($username) || empty($email) || empty($password) || empty($passwordRepeat)){ /*empty is a php function*/
         /*redirecting the user back to the sign up page. Also including the error message and all of prewritten fields*/
-<<<<<<< HEAD
-        header("Location: ../signup.php?error=emptyfields&username=".$username&"email"=.$email); 
-        exit(); 
-    }
-    else if(!filter_var($email, FILTER_VALIDATE_EMAIL) && !preg_match("/^[a-zA-Z0-9]*$/", $username)){
-        header("Location: ../signup.php?error=invalidemailuid"); 
-        exit(); 
-    }
-/*checks for invalid email, if it's not valid, the code within the if statement runs*/
-    elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) || strpos($email, '@ocdsb.ca') !== false){ /*php has a function for checking emails*/ 
-        header("Location: ../signup.php?error=invalidemail&username=".$username); 
-        exit(); 
-    }
-
-    elseif(!preg_match("/^[a-zA-Z0-9]*$/", $username){ /*php function with search pattern*/
-        header("Location: ../signup.php?error=invaliduid&email=".$email); 
-        exit(); 
-    }
-    elseif($password !== $passwordRepeat){
-        header("Location: ../signup.php?error=passwordcheck&username"=.$username&"email"=.$email); 
-=======
         header("Location: ../php/login-scratch.php?error=emptyfields&username=".$username&"email=".$email); 
         exit(); 
     }
@@ -58,72 +37,41 @@ if(isset($_POST['signup-submit'])){ /*checking if the button nammed "signup-subm
     }
     elseif($password !== $passwordRepeat){
         header("Location: ../php/login-scratch.php?error=passwordcheck&username=".$username&"email=".$email); 
->>>>>>> 598bdd93746421d474f0dbd3655a0efacf44cf37
         exit(); 
     }
 
     else{
-<<<<<<< HEAD
-        /*SQL statement that we want to run in the database*/ 
-        $sql = "SELECT usernameUsers FORM users WHERE usernameUsers=?" /*the ? is the placeholder*/
-        $statement = mysql_stmt_init($conn); 
-        if(!mysqli_stmt_prepare($statement, $sql)){
-            header("Location: ../signup.php?error=sqlerror"); 
-=======
         /*SQL statement that we want to run in the database, checking for taken usernames*/ 
         $sql = "SELECT usernameUsers FROM users WHERE usernameUsers=?"; /*the ? is the placeholder, using prepared statements in case the user inputs code into the textfields*/
         $statement = mysqli_stmt_init($conn); 
         if(!mysqli_stmt_prepare($statement, $sql)){ /*checking if we can prepare the sql statement failed */
             header("Location: ../php/login-scratch.php?error=sqlerror"); 
->>>>>>> 598bdd93746421d474f0dbd3655a0efacf44cf37
             exit();    
         }
         else{ /*testing for matching usernames, whether the username is already taken*/ 
             mysqli_stmt_bind_param($statement, "s", $username);   
             mysqli_stmt_execute($statement);              
-<<<<<<< HEAD
-            mysqli_stmt_store_result($statement); /*fetching information from teh database*/ 
-            $resultCheck = mysqli_stmt_num_rows($statement); /*should either be 0 or 1*/ 
-            if($resultCheck > 0){
-                header("Location: ../signup.php?error=usertaken&email"=.$email); 
-=======
             mysqli_stmt_store_result($statement); /*fetching information from the database*/ 
             $resultCheck = mysqli_stmt_num_rows($statement); /*should either be 0 or 1*/ 
             if($resultCheck > 0){
                 header("Location: ../php/login-scratch.php?error=usertaken&email=".$email); 
->>>>>>> 598bdd93746421d474f0dbd3655a0efacf44cf37
                 exit();    
             }
             else{
                 $sql = "INSERT INTO users (usernameUsers, emailUsers, pwdUsers) VALUES (?, ?, ?)";  /*so if the user is not registered, then this will add a new row into the datatable */ 
-<<<<<<< HEAD
-                $statement = mysql_stmt_init($conn); 
-                if(!mysqli_stmt_prepare($statement, $sql)){
-                    header("Location: ../signup.php?error=sqlerror"); 
-=======
                 $statement = mysqli_stmt_init($conn); 
                 if(!mysqli_stmt_prepare($statement, $sql)){
                     header("Location: ../php/login-scratch.php?error=sqlerror"); 
->>>>>>> 598bdd93746421d474f0dbd3655a0efacf44cf37
                     exit();    
                 }
                 else{
 /*hashing password*/ 
-<<<<<<< HEAD
-                    $hashedPwd = password_hash($password, PASSWORD_DEFAULT)
-
-                    mysqli_stmt_bind_param($statement, "sss", $username, $email, $hashedPwd);   /* 3 sss this time because inside our sql varialbe we have 3 placeholders (?, ?, ?)*/ 
-                    /* the password is hashed for security reasons */
-                    mysqli_stmt_execute($statement);              
-                    header("Location: ../includes/signup.php?signup=success"); 
-=======
                     $hashedPwd = password_hash($password, PASSWORD_DEFAULT); 
 
                     mysqli_stmt_bind_param($statement, "sss", $username, $email, $hashedPwd);   /* 3 sss this time because inside our sql variable we have 3 placeholders (?, ?, ?)*/ 
                     /* the password is hashed for security reasons */
                     mysqli_stmt_execute($statement);              
                     header("Location: ../php/login-scratch.php?signup=success"); 
->>>>>>> 598bdd93746421d474f0dbd3655a0efacf44cf37
                     exit(); 
                 }
 
@@ -136,10 +84,6 @@ if(isset($_POST['signup-submit'])){ /*checking if the button nammed "signup-subm
 
 }
 else{ /*if the user did not signup by clicking the button*/ 
-<<<<<<< HEAD
-    header("Location ../signup.php")
-=======
     header("Location ../php/login-scratch.php"); 
->>>>>>> 598bdd93746421d474f0dbd3655a0efacf44cf37
     exit(); 
 }

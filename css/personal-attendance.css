@@ -2,6 +2,11 @@
 * mainly for the teachers attendance
  */
   
+ /*for the highlighted buttons */
+ .highlight{
+  background-color: gray; 
+  font-weight: strong; 
+ }
   .left{
     grid-column-start: c2; 
     grid-column-end: c3;

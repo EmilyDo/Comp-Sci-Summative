@@ -1,7 +1,7 @@
 
     <main>
         <h1>Sign Up</h1>
-        <form action="signup.php" method="post"> 
+        <form action="includes/signup.inc.php" method="post"> 
             <input type="text" name="username" placeholder="Username"> 
             <input type="text" name="email" placeholder="Email"> 
             <input type="password" name="password" placeholder="Password"> 

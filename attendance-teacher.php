@@ -20,6 +20,32 @@
   <link href="css/personal-attendance.css" rel="stylesheet">
   <link href="css/attendance-teacher.css" rel="stylesheet">
 
+<script> 
+  function checkAttendanceOption(){
+    var select = document.getElementById("attendance-select"); 
+    if(select.options[select.selectedIndex].value == "present"){
+      var present = document.getElementByClass("present-button"); 
+      present.classList.add("highlight");
+
+    }elseif(select.options[select.selectedIndex].value == "absent"){
+      var absent = document.getElementByClass("absent-button"); 
+      absent.classList.add("highlight");
+
+    }elseif(select.options[select.selectedIndex].value == "late"){
+      var late = document.getElementByClass("late-button"); 
+      late.classList.add("highlight");
+
+    }
+  }
+
+
+  function highlight(x){
+      x.classList.add("highlight");
+  }
+
+</script> 
+
+
 </head>
 
 <body id="page-top">
@@ -334,8 +360,8 @@
         <div class="container-fluid">
 
           <!-- Page Heading -->
-          <h1 class="h3 mb-1 text-gray-800">Other Utilities</h1>
-          <p class="mb-4">Bootstrap's default utility classes can be found on the official <a href="https://getbootstrap.com/docs">Bootstrap Documentation</a> page. The custom utilities below were created to extend this theme past the default utility classes built into Bootstrap's framework.</p>
+          <h1 class="h3 mb-1 text-gray-800">Attendance</h1>
+          <p class="mb-4">Take the attendance.</p>
 
           <!-- Content Row -->
           <div class="row">
@@ -357,8 +383,13 @@
                   <!--BLABLABLABLA-->
 
                   <div id="">
-
-                    <table> 
+                  <select id="attendance-select" onchange="checkAttendanceOption()" class="button">
+                    <option value="blank" disabled selected>select all as</option>
+                    <option value="present">present</option>
+                    <option value="absent">absent</option>
+                    <option value="late">late</option>
+                  </select>                
+                  <table> 
                       <thead> 
                         <tr> 
                           <th> First Name </th>
@@ -381,8 +412,8 @@
                           if($result-> num_rows > 0){
                             while($row = $result -> fetch_assoc()){
                               echo '<tr><td>'.$row["firstName"] .'</td><td>'.$row["lastName"] .'</td>
-                              <td>'.$row["email"] .'</td><td><button type="button" class="first button">Here</button></td>
-                              <td><button class="button">Absent</button></td><td><button class="button">Late</button></td>
+                              <td>'.$row["email"] .'</td><td><button type="button" onclick="highlight(this)" class="first present-button button">Present</button></td>
+                              <td><button onclick="highlight(this)" class="button absent-button">Absent</button></td><td><button onclick="highlight(this)" class="button late-button">Late</button></td>
                               </tr>'; 
                             }
                             echo "</table>"; 
@@ -415,7 +446,7 @@
                   </div>
 BLABLABLA-->
                   <!--BLABLABLA-->
-
+                  <button class="button"> save </button>
                 </div>
               </div>
 
