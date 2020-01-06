@@ -338,6 +338,7 @@
 
             <p>Teacher adding image</p>
 
+            <script src="js/saving-image-uploads.js"></script>
             <!--container for everything containing problem related stuff-->
             <div class="problem-contents" style="position:relative; text-align:center;width:auto;height:auto;">
                 <h2 id ="solutionText" style ="display:block" align="center">Problem Image:</h2>
@@ -362,7 +363,7 @@
             <div class="problem-upload" style="display:inline-block; position:relative;margin:0 auto;">
 
             <!--image the user uploaded with icon still available so you can choose to upload a different file-->
-            <img id="uploadProblem" src="#" alt="your image" onmouseover="displayIconUploadP();" onmouseout="hideIconUploadP();" style="display:none;margin-left:auto; margin-right:auto;" />
+            <img id="uploadProblem" src="#" alt="your image" script ="fetchProblem()"; onmouseover="displayIconUploadP();" onmouseout="hideIconUploadP();" style="display:none;margin-left:auto; margin-right:auto;" />
                 <label for="problem-input">
                     <img id="icon-uploadP" src="file-regular.svg" alt="Upload Image" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;width:30px;height:40px;"/>
                 </label>
@@ -401,6 +402,7 @@
                 <label for="solution-input">
                     <img id="icon-uploadS" src="file-regular.svg" alt="Upload Image" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;width:30px;height:40px;"/>
                 </label>
+            
             <!--end of div for solution upload image and icon-->
             </div>
 
@@ -408,97 +410,11 @@
             </div>
             
             
-
                 <style>
                     article, aside, figure, footer, header, hgroup, menu, nav, section {
                         display: block;}
                 </style>
-
-                <script>
-                    function readURLProblem(input) {
-                        if (input.files && input.files[0]) {
-                            var reader = new FileReader();
-
-                            reader.onload = function (e) {
-                            $('#uploadProblem')
-                            .attr('src', e.target.result)
-                            .width(640);
-                            };
-
-                        reader.readAsDataURL(input.files[0]);
-                        }
-
-                        if (document.getElementById("defaultImgP").style.display === "block"){
-                            document.getElementById("defaultImgP").style.display = "none";
-                        }
-                    }
-
-                    function readURLSolution(input) {
-                        if (input.files && input.files[0]) {
-                            var reader = new FileReader();
-
-                            reader.onload = function (e) {
-                            $('#uploadSolution')
-                            .attr('src', e.target.result)
-                            .width(640);
-                            };
-
-                        reader.readAsDataURL(input.files[0]);
-                        }
-
-                        if (document.getElementById("defaultImgS").style.display === "block"){
-                            document.getElementById("defaultImgS").style.display = "none";
-                        }
-                    }
-
-                    //problem stuff
-                    function displayIconP(){
-                        document.getElementById("icon-problem").style.display = "block";
-                    }
-
-                    function hideIconP(){
-                        document.getElementById("icon-problem").style.display = "none";
-                    }
-
-                    //solution stuff
-                    function displayIconS(){
-                        document.getElementById("icon-solution").style.display = "block";
-                    }
-
-                    function hideIconS(){
-                        document.getElementById("icon-solution").style.display = "none";
-                    }
-
-                    //problem stuff
-                    function displayIconUploadP(){
-                        document.getElementById("icon-uploadP").style.display = "block";
-                    }
-
-                    function hideIconUploadP(){
-                        document.getElementById("icon-uploadP").style.display = "none";
-                    }
-
-                    function displayUploadP(){
-                        document.getElementById("uploadProblem").style.display = "block";
-                        
-                    }
-
-                    //solution stuff
-                    function displayIconUploadS(){
-                        document.getElementById("icon-uploadS").style.display = "block";
-                    }
-
-                    function hideIconUploadS(){
-                        document.getElementById("icon-uploadS").style.display = "none";
-                    }
-
-                    function displayUploadS(){
-                        document.getElementById("uploadSolution").style.display = "block";
-                        
-                    }
-                </script>
-                
-            
+                           
             </body>
         </div>
         <!-- /.container-fluid -->
