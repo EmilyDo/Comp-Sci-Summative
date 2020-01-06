@@ -6,7 +6,9 @@
 /* 11/10/2019*/
 
 
- 
+.top-expand{
+  margin-top: 25%; 
+}
 
 .toggled-phone{
   position:absolute;
@@ -19,7 +21,7 @@
 
 .expand{
   position: fixed;
-  height: 75%;
+  height: 50%;
   z-index: 1;
 }
 
