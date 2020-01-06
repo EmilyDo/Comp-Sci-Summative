@@ -1,0 +1,37 @@
+/*
+* mainly for the teachers' attendance page
+*/ 
+
+#attendance-card{
+    min-width: 40rem; 
+}
+
+.first{
+  margin-left: 30px !important; 
+}
+.button{
+  margin: 3px; 
+  font-weight: normal;
+  text-align: center;
+  vertical-align: middle;
+  background-image: none;
+  border: 1px solid transparent;
+  white-space: nowrap;
+  padding: 6px; 
+  font-size: 14px;
+  line-height: 1.42857143;
+  border-radius: 5px;
+  max-height: 3rem; 
+  background-color: #f1f3f6;
+  border-color:#dbe1e8;
+  color: #394263;
+  font-size: 100%; 
+}
+
+th{
+  text-align: center;
+}
+
+table{
+  white-space: pre-wrap; 
+}
