@@ -1,6 +1,11 @@
-<style> <?php 
-include FILE_DIR . "../css/sb-admin-2.min.css"; 
-?> </style>
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <link href="sb-admin-2.min.css" rel="stylesheet">
+        <title>Sign Up</title>
+        <style> 
+        </style>
 
     <main>
         <div class="card"
@@ -12,5 +17,8 @@ include FILE_DIR . "../css/sb-admin-2.min.css";
                 <input type="password" name="password2" placeholder="Repeat Password"> 
                 <button type="submit" name="signup-submit">Sign Up</button> 
             </form>
+            <h1>Already have an account?</h1>
+            <button><a href="actual-login.php">Login</a></button> 
         </div> 
     </main> 
+</html>
