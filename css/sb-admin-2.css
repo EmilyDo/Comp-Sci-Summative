@@ -560,7 +560,7 @@ pre code {
 }
 
 @media (min-width: 576px) {
-  .container {
+  col-xl-8ia .container {
     max-width: 540px;
   }
 }
@@ -584,7 +584,7 @@ pre code {
 }
 
 .container-fluid {
-  width: 100%;
+  width: 0%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
   margin-right: auto;
@@ -4081,7 +4081,7 @@ input[type="button"].btn-block {
 }
 
 @media (min-width: 768px) {
-  .navbar-expand-md {
+  accordionSidebar.navbar-expand-md {
     flex-flow: row nowrap;
     justify-content: flex-start;
   }
@@ -4522,7 +4522,7 @@ input[type="button"].btn-block {
 }
 
 .accordion > .card {
-  overflow: hidden;
+  overflow: scrolling;
 }
 
 .accordion > .card:not(:first-of-type) .card-header:first-child {

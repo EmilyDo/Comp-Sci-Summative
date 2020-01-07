@@ -1,0 +1,174 @@
+/*
+* mainly for the fractions converter
+ */
+
+.ratio-container{
+  display:grid; 
+  grid-template-columns: [c1] 45% [c2] 10% [c3] 45% [c4]; 
+  min-width: 100%; 
+}
+
+.left-fraction{
+  justify-self: start; 
+  grid-column-start: c1; 
+  grid-column-end: c2; 
+}
+
+.right-fraction{
+  justify-self: end; 
+  grid-column-start: c3; 
+  grid-column-end: c4; 
+}
+
+#convert-button{
+  justify-self: end; 
+  margin-right: 5rem; 
+}
+
+#erase{
+  justify-self: start; 
+  margin-left: 5rem; 
+}
+
+.calculation{
+  max-width: 8rem; 
+}
+
+.left{
+  grid-column-start: c2; 
+  grid-column-end: c3;
+}
+
+.right{
+  grid-column-start: c4; 
+  grid-column-end: c5; 
+}
+
+.top{
+  grid-row-start: r2; 
+  grid-row-end: r3;     
+}
+
+.middle{
+  grid-row-start: r3; 
+  grid-row-end: r4;     
+}
+
+.bottom{
+  grid-row-start: r4; 
+  grid-row-end: r5;  
+}
+
+.center{
+  justify-self: center; 
+  align-self: center; 
+}
+
+#equals{
+  grid-column-start: c3; 
+  grid-column-end: c4; 
+}
+
+.sign{
+  font-size: 3rem; 
+
+}
+
+.fraction-container{
+  display:grid; 
+  grid-template-rows: [r1] 45% [r2] 10% [r3] 45% [r4]; 
+  min-height: 80%; 
+  max-height: 85%; 
+  align-items: center;
+}
+
+.top-fraction{
+  grid-row-start: r1; 
+  grid-row-end: r2; 
+}
+
+.bottom-fraction{
+  grid-row-start: r3; 
+  grid-row-end: r4; 
+}
+
+.line{
+  grid-row-start: r2; 
+  grid-row-end: r3; 
+}
+
+#converter-body{
+  display:grid; 
+  grid-template-columns: [c1] 10% [c2] 35% [c3] 10% [c4] 35% [c5] 10% [c6]; 
+  grid-template-rows: [r1] 5% [r2] 20% [r3] auto [r4] 6rem [r5]; 
+  min-height: 30rem; 
+
+}
+
+.operator{
+  max-width: 7em; 
+}
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+
+/*changing the grid layout for phones*/
+
+
+@media (max-width: 980px){
+  input{
+    width:100px;
+  }
+  svg{
+    width: 110px; 
+  }
+
+  .calculation{
+    max-width: 8rem; 
+  }
+  
+  .sign{
+    font-size: 2.5rem; 
+  }
+  
+  #converter-body{
+    display:grid; 
+    grid-template-columns: [c1] 1% [c2] 43% [c3] 12% [c4] 43% [c5] 1% [c6]; 
+  }
+  
+  .operator{
+    max-width: 5em; 
+  }
+
+}
+
+@media (max-width: 600px){
+  #converter-body{
+    display:grid; 
+    grid-template-columns: [c1] 1% [c2] 44% [c3] 12% [c4] 44% [c5] 1% [c6]; 
+  }
+  input{
+    width:80px;
+  }
+  svg{
+    width: 90px; 
+  }
+}
+
+@media (max-width: 502px){  
+  input{
+    width:55px;
+  }
+  svg{
+    width: 60px; 
+  }
+  #converter-body{
+    display:grid; 
+    grid-template-columns: [c1] 1% [c2] 48% [c3] 10% [c4] 48% [c5] 1% [c6]; 
+  }
+}
+/*end of grid layout changes*/ 
