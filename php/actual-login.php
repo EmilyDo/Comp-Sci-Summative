@@ -11,37 +11,47 @@
   <meta name="author" content="">
 
   <title>Login </title>
-
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
-
   <!-- Custom styles for this template-->
   <link href="../css/sb-admin-2.min.css" rel="stylesheet">
   <link href="../css/personal.css" rel="stylesheet">
   <link href="../css/personal2.css" rel="stylesheet">
   <link href="../css/phone.css" rel="stylesheet">
-
 </head>
-
     <main>
 
-<!-- Area Chart -->
-<div class="card shadow mb-4">
-  <div class="card-header py-3"> 
-    <h6 class="m-0 font-weight-bold text-primary">Fraction Converter</h6>
-  </div>
-
-  <h3>Login</h3>
-            <form class="card" action="../includes/signup.inc.php" method="post"> 
-                <input type="text" name="username" placeholder="Username"> 
-                <input type="password" name="password" placeholder="Password"> 
-                <button type="submit" name="signup-submit">Login</button> 
-            </form>
-            <h3>Don't have an account?</h3>
-            <button><a href="login-scratch.php">Sign up</a></button> 
-
-</div>
+    <div class="p-5">
+        <div class="text-center">
+            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+            </div>
+              <form style="text-align: center; "class="user" action="../includes/signup.inc.php" method="post"> 
+                    <div style="align-content: center;" class="form-group">
+                      <input style="width: 50%; min-width: 19rem; " type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Username">
+                    </div>
+                    <div style="align-content: center;" class="form-group">
+                      <input style="width: 50%; min-width: 19rem; " type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                      <div class="custom-control custom-checkbox small">
+                        <input type="checkbox" class="custom-control-input" id="customCheck">
+                        <label class="custom-control-label" for="customCheck">Remember Me</label>
+                      </div>
+                    </div>
+                    <button style="border:0; width: 30%; " type="submit" name="signup-submit"> <a href="index.html" class="btn btn-primary btn-user btn-block">
+                      Login
+                    </a> </button>
+                    <hr>
+                </form>
+            <hr>
+                <div class="text-center">
+                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                </div>
+                <div class="text-center">
+                <a class="small" href="login-scratch.php">Create an Account!</a> 
+        </div>
+    </div>
 
 
     </main> 
