@@ -1,0 +1,152 @@
+/*
+* mainly for the student pages 
+ */
+
+ /*screen size changes*/
+/* 11/10/2019*/
+
+
+ 
+
+.toggled-phone{
+  position:absolute;
+  top: 3%;
+}
+
+.phone-container{
+  margin-top: 25%; 
+}
+
+.expand{
+  position: fixed;
+  height: 75%;
+  z-index: 1;
+}
+
+@media (min-width: 502px) {
+  #dropdown{
+    display: none; 
+  }
+}
+
+@media (max-width: 768px) and (min-width: 502px) {
+  #content-wrapper{
+    margin-left: 100px !important; 
+  }
+}
+
+@media (max-width: 502px) {
+  #sidebarToggleTop{
+    display: none; 
+  }
+
+  #phone-bar{
+    width: 100%;
+  }
+ 
+  #dropdown{
+    margin-top: 4%; 
+    margin-left: 18%; 
+  }
+  #content-wrapper{
+    margin-left: 0px !important; 
+    transition: margin-left .5s;
+  }
+
+  #dropdown .show {
+      height: 100%;
+      position: fixed;
+      left: 0;
+      width: 400px;
+      margin-top: 60px;
+      transform: translateX(-250px);
+      transition: transform 2s ease-in-out;
+      background: linear-gradient(180deg, #FC466B 0%, #3F5EFB 100%);
+    }
+     
+    
+    .menuInner { 
+      width: 120%; 
+      margin: 0;
+      padding: 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.10);
+    }
+  
+    .menuInner li {
+      list-style: none;
+      color: black;
+      text-transform: uppercase;
+      font-weight: bold;
+      padding: 13px;
+      cursor: pointer;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+    }
+   
+    .menuInner li span {
+      display: block;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.50);
+    }
+ 
+    .menuInner li a {
+      color: black;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    
+  .navbar-nav{
+    display: none; 
+  }
+  
+  .menu-toggle {
+    display: inline-block;
+    cursor: pointer;
+  }
+
+  #phone-bar .toggled{
+    margin-top: 0rem; 
+  }
+
+  .menu-toggle div{
+    width: 30px;
+    height: 4px;
+    background-color: #333;
+    margin: 6px 0;
+    transition: 0.4s;
+    border-radius: 10px; 
+  }
+
+  /*this is the new class that's added to the divs when toggleMenu function is called */
+  .toggled-phone div:nth-child(1){
+    -webkit-transform: rotate(-45deg) translate(-7px, 3px);
+    transform: rotate(-45deg) translate(-7px, 3px);
+  }
+  .toggled-phone div:nth-child(2){
+    right: 50px; 
+    opacity: 0;
+    transition: .25s ease-in-out;
+  }
+  .toggled-phone div:nth-last-child(1){
+    -webkit-transform: rotate(45deg) translate(-10px, -8px);
+    transform: rotate(45deg) translate(-10px, -8px);
+  }
+
+  .navbar{
+    overflow: hidden; 
+  }
+
+  .navbar .show{
+    position: relative; 
+  }
+
+  .navbar .show ul{
+    display: block; 
+  }
+
+
+  .navbar ul{
+    display: none; 
+  }
+}
