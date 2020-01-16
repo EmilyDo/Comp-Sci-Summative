@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Bonus Problem </title>
+
+  <!-- Custom fonts for this template-->
+  <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+  <!-- Custom styles for this template-->
+  <link href="css/sb-admin-2.min.css" rel="stylesheet">
+  <link href="css/personal.css" rel="stylesheet">
+  <link href="css/personal2.css" rel="stylesheet">
+  <link href="css/phone.css" rel="stylesheet">
+
+  <style>
+      .sidebar{
+        overflow-y: scroll;
+        overflow-x: hidden;
+        height: 60px;
+        position: fixed;
+        z-index: 1;
+        transition: margin-left .4s;
+      }
+      
+      .body{
+        overflow: auto; 
+      }
+
+      #content-wrapper{
+        margin-left: 220px; 
+        transition: margin-left .5s;
+      }
+      
+      .toggled-content-wrapper{
+        margin-left: 100px !important; 
+      }
+
+      .sidebar.toggled .nav-item .nav-link span {
+        display: none; 
+      }
+
+      @media (min-width: 768px) {
+        
+      }
+
+      .col-xl-8 {
+        max-width: 100% !important;
+        min-width: 98% !important; 
+
+      }
+
+      </style>
+
+</head>
+
+<body onload="show()" id="page-top">
+
+  <!-- Page Wrapper -->
+  <div id="wrapper">
+
+<!-- Sidebar -->
+      <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+          <!-- Sidebar - Brand -->
+          <a class="sidebar-brand d-flex align-items-center justify-content-center" href="welcome-page.html">
+              <div class="sidebar-brand-icon rotate-n-15">
+                  <i class="fas fa-laugh-wink"></i>
+              </div>
+              <div class="sidebar-brand-text mx-3">Math Help </div>
+          </a>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider my-0">
+
+          <!-- Nav Item - Dashboard -->
+          <li class="nav-item">
+              <a class="nav-link" href="welcome-page.html">
+                  <i class="fas fa-fw fa-home"></i>
+                  <span>Welcome</span>
+              </a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              Students
+          </div>
+
+          <!-- Nav Item - Pages Collapse Menu -->
+          <!-- Nav Item - Utilities Collapse Menu -->
+          <li class="nav-item">
+              <a class="nav-link" href="calendar-page.html">
+                  <i class="far fa-fw  fa-calendar-times"></i>
+                  <span>Calendar</span>
+              </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="php/attendance-student.php">
+                  <i class="fas fa-fw fa-clipboard-list"></i>
+                  <span>Attendance</span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+                  <i class="fas fa-fw fa-wrench"></i>
+                  <span>Math Resources</span>
+              </a>
+              <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+                  <div class="bg-white py-2 collapse-inner rounded">
+                      <a class="collapse-item" href="M.html">Fraction Calculator</a>
+                      <a class="collapse-item" href="fractions-calculator.html">Fraction Converter</a>
+                  </div>
+              </div>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="bonus-problem-student.html">
+                  <i class="fas fa-fw fa-plus"></i>
+                  <span>Bonus Problem</span>
+              </a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider">
+
+          <!-- Heading -->
+          <div class="sidebar-heading">
+              Teachers
+          </div>
+
+          <!-- Nav Item - Pages Collapse Menu -->
+          <li class="nav-item">
+              <a class="nav-link" href="php/actual-login.php">
+                  <i class="fas fa-fw fa-clipboard-list"></i>
+                  <span>Attendance</span>
+              </a>
+          </li>
+
+          <li class="nav-item">
+              <a class="nav-link" href="bonus-problem-teacher.html">
+                  <i class="fas fa-fw fa-plus"></i>
+                  <span style="color: white;" class="font-weight-bold">Bonus Problem</span>
+              </a>
+          </li>
+
+          <!-- Divider -->
+          <hr class="sidebar-divider d-none d-md-block">
+
+          <!-- Sidebar Toggler (Sidebar) -->
+          <div class="text-center d-none d-md-inline">
+              <button class="rounded-circle border-0" id="sidebarToggle" onclick="moveBody()"></button>
+          </div>
+
+      </ul>
+<!-- End of Sidebar -->
+
+    <!-- Content Wrapper -->
+    <div id="content-wrapper" class="d-flex flex-column">
+
+      <!-- Main Content -->
+      <div id="content">
+
+        <!-- Topbar -->
+        <nav id="phone-bar" class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow" >
+
+          <!--BLABLABLA-->
+          <div id="menu-toggle-button" class="menu-toggle" onclick="toggleMenu(this)">
+            <div></div>
+            <div></div>
+            <div></div>
+          </div>
+
+          <div id="dropdown"> 
+            <ul class="menuInner">
+              <div></div>
+              <li><a href="" target="_blank">Welcome</a></li>
+              <span>Students</span>
+              <li><a href="" target="_blank">Calendar</a></li>
+              <li><a href="" target="_blank">Staff Directory</a></li>
+              <li><a href="" target="_blank">Attendance</a></li>
+              <li><a href="" target="_blank">Fractions Converter</a></li>
+              <li><a href="" target="_blank">Fractions Calculator</a></li>
+              <li><a href="" target="_blank">Bonus Problem</a></li>
+              <span>Teachers</span>
+              <li><a href="" target="_blank">Attendance</a></li>
+              <li><a href="" target="_blank">Staff Payment Portal </a></li>
+            </ul>
+          </div>
+                  
+          <!--BLABLABLA-->
+
+          <!-- Sidebar Toggle (Topbar) -->
+          <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+            <i class="fa fa-bars"></i>
+          </button>
+
+
+
+        </nav>
+        <!-- End of Topbar -->
+
+        <!-- Begin Page Content -->
+        <div class="container-fluid">
+
+          <!-- Page Heading -->
+          <h1 class="h3 mb-4 text-gray-800">Bonus Math Problem Page</h1>
+
+            <p>Hover over the images for the file icon to appear. Click on the file icon to upload an image of the bonus problem from your computer.</p>
+
+            <!--container for everything containing problem related stuff-->
+            <div class="problem-contents" style="position:relative; text-align:center;width:auto;height:auto;">
+                <h2 id ="solutionText" style ="display:block" align="center">Problem Image:</h2>
+
+            <!--container for problem image and icon-->
+            <div class="problem-container" style="display:inline-block; position:relative; margin:0 auto;">
+                <!--default image-->
+                  <img id="defaultImgP" src="image-not-available.jpg" alt="Image Not Available" onmouseover="displayIconP();" onmouseout="hideIconP();" style ="display:block;margin:auto;"/>
+
+                <!--icon image-->
+                <label for="problem-input">
+                    <img id="icon-problem" src="file-regular.svg" alt="Upload Image" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;width:30px;height:40px;"/>
+                </label>
+            
+            <!--input element to allow user to choose file-->
+            <input id="problem-input" type="file" onchange="readURLProblem(this); displayUploadP();" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;"/>
+
+            <!--end of div for problem container-->
+            </div>
+
+            <!--container for image of problem uploaded by user-->
+            <div class="problem-upload" style="display:inline-block; position:relative;margin:0 auto;">
+
+            <!--image the user uploaded with icon still available so you can choose to upload a different file-->
+            <img id="uploadProblem" src="#" alt="your image" onmouseover="displayIconUploadP();" onmouseout="hideIconUploadP();" style="display:none;margin-left:auto; margin-right:auto;" />
+                <label for="problem-input">
+                    <img id="icon-uploadP" src="file-regular.svg" alt="Upload Image" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;width:30px;height:40px;"/>
+                </label>
+            <!--end of div for problem upload image and icon-->
+            </div>
+
+                <h2 id ="solutionText" style ="display:block" align="center">Solution Image:</h2>
+
+            <!--end div for all problem contents and solution text-->
+            </div>
+
+            <!--container for everything containing solution related stuff-->
+            <div class="solution-contents" style="position:relative; text-align:center;width:auto;height:auto;">
+
+            <!--container for solution image and icon-->
+            <div class="solution-container" style="display:inline-block; position:relative; margin:0 auto;">
+                <!--default image-->
+                  <img id="defaultImgS" src="image-not-available.jpg" alt="Image Not Available" onmouseover="displayIconS();" onmouseout="hideIconS();" style ="display:block;margin:auto;"/>
+
+                <!--icon image-->
+                <label for="solution-input">
+                    <img id="icon-solution" src="file-regular.svg" alt="Upload Image" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;width:30px;height:40px;"/>
+                </label>
+            
+            <!--input element to allow user to choose file-->
+            <input id="solution-input" type="file" onchange="readURLSolution(this); displayUploadS();" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;"/>
+
+            <!--end of div for problem container-->
+            </div>
+
+            <!--container for image of solution uploaded by user-->
+            <div class="solution-upload" style="display:inline-block; position:relative;margin:0 auto;">
+
+            <!--image the user uploaded with icon still available so you can choose to upload a different file-->
+            <img id="uploadSolution" src="#" alt="your image" onmouseover="displayIconUploadS();" onmouseout="hideIconUploadS();" style="display:none;margin-left:auto; margin-right:auto;" />
+                <label for="solution-input">
+                    <img id="icon-uploadS" src="file-regular.svg" alt="Upload Image" style="display:none;position:absolute!important;top:0!important;right:0!important;z-index:3!important;width:30px;height:40px;"/>
+                </label>
+            <!--end of div for solution upload image and icon-->
+            </div>
+
+            <!--end div for all solution contents-->
+            </div>
+            
+            
+
+                <style>
+                    article, aside, figure, footer, header, hgroup, menu, nav, section {
+                        display: block;}
+                </style>
+
+                <script>
+                    function readURLProblem(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                            $('#uploadProblem')
+                            .attr('src', e.target.result)
+                            .width(640);
+                            };
+
+                        reader.readAsDataURL(input.files[0]);
+                        }
+
+                        if (document.getElementById("defaultImgP").style.display === "block"){
+                            document.getElementById("defaultImgP").style.display = "none";
+                        }
+                    }
+
+                    function readURLSolution(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                            $('#uploadSolution')
+                            .attr('src', e.target.result)
+                            .width(640);
+                            };
+
+                        reader.readAsDataURL(input.files[0]);
+                        }
+
+                        if (document.getElementById("defaultImgS").style.display === "block"){
+                            document.getElementById("defaultImgS").style.display = "none";
+                        }
+                    }
+
+                    //problem stuff
+                    function displayIconP(){
+                        document.getElementById("icon-problem").style.display = "block";
+                    }
+
+                    function hideIconP(){
+                        document.getElementById("icon-problem").style.display = "none";
+                    }
+
+                    //solution stuff
+                    function displayIconS(){
+                        document.getElementById("icon-solution").style.display = "block";
+                    }
+
+                    function hideIconS(){
+                        document.getElementById("icon-solution").style.display = "none";
+                    }
+
+                    //problem stuff
+                    function displayIconUploadP(){
+                        document.getElementById("icon-uploadP").style.display = "block";
+                    }
+
+                    function hideIconUploadP(){
+                        document.getElementById("icon-uploadP").style.display = "none";
+                    }
+
+                    function displayUploadP(){
+                        document.getElementById("uploadProblem").style.display = "block";
+                        
+                    }
+
+                    //solution stuff
+                    function displayIconUploadS(){
+                        document.getElementById("icon-uploadS").style.display = "block";
+                    }
+
+                    function hideIconUploadS(){
+                        document.getElementById("icon-uploadS").style.display = "none";
+                    }
+
+                    function displayUploadS(){
+                        document.getElementById("uploadSolution").style.display = "block";
+                        
+                    }
+                </script>
+                
+            
+        </div>
+        <!-- /.container-fluid -->
+
+      </div>
+      <!-- End of Main Content -->
+
+      <!-- Footer -->
+      <footer class="sticky-footer bg-white">
+        <div class="container my-auto">
+          <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Your Website 2019</span>
+          </div>
+        </div>
+      </footer>
+      <!-- End of Footer -->
+
+    </div>
+    <!-- End of Content Wrapper -->
+
+  </div>
+  <!-- End of Page Wrapper -->
+
+  <!-- Scroll to Top Button-->
+  <a class="scroll-to-top rounded" href="#page-top">
+    <i class="fas fa-angle-up"></i>
+  </a>
+
+  <!-- Logout Modal-->
+  <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+          <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">×</span>
+          </button>
+        </div>
+        <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+          <a class="btn btn-primary" href="login.html">Logout</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap core JavaScript-->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Core plugin JavaScript-->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom scripts for all pages-->
+  <script src="js/sb-admin-2.min.js"></script>
+
+  <!-- Page level plugins -->
+  <script src="vendor/chart.js/Chart.min.js"></script>
+
+  <!-- Page level custom scripts -->
+  <script src="js/demo/chart-area-demo.js"></script>
+
+
+</body>
+
+</html>

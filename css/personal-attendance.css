@@ -1,0 +1,99 @@
+/*
+* mainly for the teachers attendance
+ */
+  
+ /*for the highlighted buttons */
+ .highlight{
+  background-color: gray; 
+  font-weight: strong; 
+ }
+  .left{
+    grid-column-start: c2; 
+    grid-column-end: c3;
+  }
+  
+
+  .first-button{
+    grid-column-start: c3; 
+    grid-column-end: c4; 
+  }
+  .second-button{
+    grid-column-start: c4; 
+    grid-column-end: c5; 
+  }
+  .right{
+    grid-column-start: c5; 
+    grid-column-end: c6; 
+  }
+  
+  .top{
+    grid-row-start: r2; 
+    grid-row-end: r3;     
+  }
+  
+  .second{
+    grid-row-start: r3; 
+    grid-row-end: r4;     
+  }
+
+  .third{
+    grid-row-start: r5; 
+    grid-row-end: r6;     
+  }
+  .fourth{
+    grid-row-start: r6; 
+    grid-row-end: r7;     
+  }
+
+  .center{
+    justify-self: center; 
+    align-self: center; 
+  }
+  
+  #equals{
+    grid-column-start: c3; 
+    grid-column-end: c4; 
+  }
+  
+  .sign{
+    font-size: 3rem; 
+  
+  }
+  
+  .fraction-container{
+    display:grid; 
+    grid-template-rows: [r1] 45% [r2] 10% [r3] 45% [r4]; 
+    min-height: 80%; 
+    max-height: 85%; 
+    align-items: center;
+  }
+  
+  .top-fraction{
+    grid-row-start: r1; 
+    grid-row-end: r2; 
+  }
+  
+  .bottom-fraction{
+    grid-row-start: r3; 
+    grid-row-end: r4; 
+  }
+  
+  .line{
+    grid-row-start: r2; 
+    grid-row-end: r3; 
+  }
+  
+  #attendance-container{
+      min-height: 200px; 
+    display:grid; 
+    grid-template-columns: [c1] 5% [c2] 30% [c3] 20% [c4] 20% [c5] 20% [c6] 5% [c7]; 
+    grid-template-rows: [r1] 20% [r2] 20% [r3] 20% [r4] 20% [r5] 20% [r6]; 
+    min-height: 30rem; 
+  
+  }
+  
+  .operator{
+    max-width: 7em; 
+  }
+  
+  
