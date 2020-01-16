@@ -20,13 +20,22 @@
   <link href="css/personal-attendance.css" rel="stylesheet">
   <link href="css/attendance-teacher.css" rel="stylesheet">
 
+  <style> 
+    @media (min-width: 992px){}
+      .col-lg-6 {
+          min-width: 90% !important; 
+      }
+    }
+  </style>
+
 <script> 
   function checkAttendanceOption(){
-    var select = document.getElementById("attendance-select"); 
-    if(select.options[select.selectedIndex].value == "present"){
+    var select = document.getElementById("attendance-select").value; 
+    alert("it works"); 
+    if(select == "present"){
+      alert("it works"); 
       var present = document.getElementByClass("present-button"); 
       present.classList.add("highlight");
-
     }elseif(select.options[select.selectedIndex].value == "absent"){
       var absent = document.getElementByClass("absent-button"); 
       absent.classList.add("highlight");
@@ -383,8 +392,8 @@
                   <!--BLABLABLABLA-->
 
                   <div id="">
-                  <select id="attendance-select" onchange="checkAttendanceOption()" class="button">
-                    <option value="blank" disabled selected>select all as</option>
+                  <select id="attendance-select" onclick="checkAttendanceOption()" class="button">
+                    <option value="blank" selected>select all as</option>
                     <option value="present">present</option>
                     <option value="absent">absent</option>
                     <option value="late">late</option>
