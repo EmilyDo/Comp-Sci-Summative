@@ -1,18 +1,20 @@
 <?php
-if(isset($_POST['signin-submit'])){ 
+if(isset($_POST['signup-submit'])){ 
     require 'databaseHandler.inc.php'; 
 
      $email = $_POST['email'];
      $first = "n/a"; 
      $last = "n/a"; 
      $id = 0; 
+     $date = getdate(); 
+     $weekday = $date['weekday']; 
 
         if(empty($email)){ 
             header("Location: ../php/attendance-student.php?error=emptyfields&email=".$email); 
             exit(); 
         }
-        elseif(!(date('D', getdate()) === 'Wed' && date('D', getdate()) === 'Mon')){
-            header("Location: ../php/attendance-student.php?error=wrongdate"); 
+        elseif(!($weekday == 'Wednesday' || $weekday == 'Monday' || $weekday == 'Sunday')){
+            header("Location: ../wrong-day.html?error=wrongdate".$weekday); 
             exit(); 
         }
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) || strpos($email, '@ocdsb.ca') == false){ 
@@ -40,7 +42,7 @@ if(isset($_POST['signin-submit'])){
                     $query = "SELECT * FROM 'attendance' where email='$email'"; 
                     $query_run = mysqli_query($conn, $query); 
 
-                    $array = $result->fetch_assoc(); 
+                    $array = $query_run->fetch_assoc(); 
                     $id = $user['id']; 
                     $first = $user['firstName']; 
                     $last = $user['lastName']; 

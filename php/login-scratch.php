@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login </title>
+  <title>Sign Up </title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -22,12 +22,12 @@
 
 
     <main>
-    <div class="p-5">
-        <div class="text-center card">
-            <h1 class="h4 text-gray-900 mb-4">Sign Up</h1>
+    <div style="min-width: 27rem; width: 80%; margin-left:10%; margin-right:10%; " class="p-5">
+        <div style="align-self: center;" class="text-center card">
+            <h1 style="margin-top: 2%;" class="h4 text-gray-900 mb-4">Sign Up</h1>
             </div>
               <form style="align-items: center; " class="card user" action="../includes/signup.inc.php" method="post"> 
-                    <div style="align-content: center;" class="form-group">
+                    <div style="margin-top: 2%; align-content: center;" class="form-group">
                       <input class="form-control form-control-user" style="width: 50%; min-width: 19rem; " type="text" name="username" placeholder="Username"> 
                     </div>
                     <div style="align-content: center;" class="form-group">
@@ -49,6 +49,7 @@
              
                 <div class="text-center">
                 <a class="small" href="actual-login.php">Already have an account?</a> 
+                <div> </div> 
                 <a class="small" href="../welcome-page.html">Back to Welcome page</a> 
         </div>
     </div>

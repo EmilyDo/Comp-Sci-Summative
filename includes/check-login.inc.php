@@ -5,7 +5,7 @@ if(isset($_POST['signin-submit'])){
      $username = $_POST['email'];
      $password = $_POST['password'];
 
-        if(empty($email)|empty($password)){ 
+        if(empty($email) || empty($password)){ 
             header("Location: ../php/actual-login.php?error=emptyfields&username=".$username); 
             exit(); 
         }

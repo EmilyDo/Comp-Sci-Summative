@@ -10,7 +10,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Login </title>
+  <title>Login Student</title>
   <!-- Custom fonts for this template-->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
@@ -21,21 +21,20 @@
 </head>
 
     <main>
-    <div class="p-5">
+    <div style="max-width: 50rem; margin-left: 15%; " class="p-5">
         <div class="text-center card">
-            <h1 class="h4 text-gray-900 mb-4">Sign in to let your tutor know you'll be here today.</h1>
+            <h1 style="margin-top: 3%; " class="h4 text-gray-900 mb-4">Sign in to let your tutor know you'll be here today.</h1>
             </div>
               <form style="align-items: center; " class="card user" action="../includes/students-attendance.inc.php" method="post"> 
-                    <div style="align-content: center;" class="form-group">
-                      <input class="form-control form-control-user" style="width: 50%; min-width: 19rem; " type="text" name="email" placeholder="Email"> 
+                    <div style="align-content: center; width: 50%; margin-top: 10%; " class="form-group">
+                      <input style="max-width:25rem; width: 100%; " class="form-control form-control-user" style="width: 50%; min-width: 19rem; " type="text" name="email" placeholder="Email"> 
                     </div>
                   
-                    <button style="border:0; width: 10%; " type="submit" name="signup-submit" class="btn btn-primary btn-user btn-block">
+                    <button style="border:0; width: 25%; " type="submit" name="signup-submit" class="btn btn-primary btn-user btn-block">
                       Sign In
                     </button>
                     <hr>
                 </form>
-            <hr>
              
     </div>
 
