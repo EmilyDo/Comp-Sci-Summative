@@ -1,8 +1,5 @@
-<<<<<<< HEAD
-=======
 
 
->>>>>>> fractions-calculator
 #container-body{
     display:grid; 
     grid-template-columns: [c1] 5% [c2] 35% [c3] 20% [c4] 35% [c5] 5% [c6]; 
@@ -51,11 +48,6 @@
 
 @media(max-width: 900px){
     input{
-<<<<<<< HEAD
-        size:20; 
-    }
-}
-=======
         width:150px; 
     }
     svg{
@@ -84,4 +76,3 @@
         width: 90px; 
     }
 }
->>>>>>> fractions-calculator
