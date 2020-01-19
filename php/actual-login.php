@@ -26,7 +26,7 @@
         <div class="text-center">
             <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
             </div>
-              <form style="text-align: center; "class="user" action="../includes/signup.inc.php" method="post"> 
+              <form style="align-items: center; " class="user" action="../includes/check-login.inc.php" method="post"> 
                     <div style="align-content: center;" class="form-group">
                       <input style="width: 50%; min-width: 19rem; " type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Username">
                     </div>
