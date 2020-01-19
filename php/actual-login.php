@@ -39,9 +39,9 @@
                         <label class="custom-control-label" for="customCheck">Remember Me</label>
                       </div>
                     </div>
-                    <button style="border:0; width: 30%; " type="submit" name="signup-submit"> <a href="index.html" class="btn btn-primary btn-user btn-block">
+                    <button style="border:0; width: 30%; " type="submit" name="signup-submit" class="btn btn-primary btn-user btn-block">
                       Login
-                    </a> </button>
+                    </button>
                     <hr>
                 </form>
             <hr>
