@@ -49,6 +49,7 @@
              
                 <div class="text-center">
                 <a class="small" href="actual-login.php">Already have an account?</a> 
+                <a class="small" href="../welcome-page.html">Back to Welcome page</a> 
         </div>
     </div>
 

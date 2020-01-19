@@ -50,6 +50,8 @@
                 </div>
                 <div class="text-center">
                 <a class="small" href="login-scratch.php">Create an Account!</a> 
+                <a class="small" href="../welcome-page.html">Back to Welcome page</a> 
+
         </div>
     </div>
 

@@ -1,6 +1,4 @@
 <?php
-
-
 if(isset($_POST['signin-submit'])){ 
     require 'databaseHandler.inc.php'; 
 
@@ -35,9 +33,6 @@ if(isset($_POST['signin-submit'])){
                 $resultCheck = mysqli_stmt_num_rows($statement);  
                 if($resultCheck <= 0){
                     header("Location: ../php/attendance-student.php?error=invaliduser"); 
-                    ?> 
-
-                    <?php
                     exit();    
                 }
                 else{
@@ -45,13 +40,18 @@ if(isset($_POST['signin-submit'])){
                     $query = "SELECT * FROM 'attendance' where email='$email'"; 
                     $query_run = mysqli_query($conn, $query); 
 
-                    while($row = mysqli_fetch_array($query_run)){
-                        $id = $row['id']; 
-                        $first = $row['firstName']; 
-                        $last = $row['lastName']; 
+                    $array = $result->fetch_assoc(); 
+                    $id = $user['id']; 
+                    $first = $user['firstName']; 
+                    $last = $user['lastName']; 
 
-                    }
+                    
+//                    while($row = mysqli_fetch_array($query_run)){
+  //                      $id = $row['id']; 
+    //                    $first = $row['firstName']; 
+      //                  $last = $row['lastName']; 
 
+//                    }
                     
                     $sql = "INSERT INTO attendancehere (id, firstName, lastName, email) VALUES (?, ?, ?, ?)";  
                     $statement = mysqli_stmt_init($conn); 
@@ -73,6 +73,8 @@ if(isset($_POST['signin-submit'])){
         mysqli_stmt_close($statement); 
         mysqli_close($conn); 
     
+        header("Location: ../welcome-page.html"); 
+        exit(); 
     }
     else{  
         header("Location ../php/attendance-student.php"); 
