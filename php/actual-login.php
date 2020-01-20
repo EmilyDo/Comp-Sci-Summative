@@ -28,10 +28,10 @@
             </div>
               <form style="text-align: center; " class="user" action="../includes/check-login.inc.php" method="post"> 
                     <div style="text-align: center;" class="form-group">
-                      <input style="margin-left: 25%; width: 50%; min-width: 19rem; " type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Username">
+                      <input style="margin-left: 25%; width: 50%; min-width: 19rem; " type="text" name="username" class="form-control form-control-user" aria-describedby="emailHelp" placeholder="Enter Username">
                     </div>
                     <div style="align-content: center;" class="form-group">
-                      <input style="margin-left: 25%; width: 50%; min-width: 19rem; " type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
+                      <input style="margin-left: 25%; width: 50%; min-width: 19rem; " type="password" name="password" class="form-control form-control-user" placeholder="Password">
                     </div>
                     <div class="form-group">
                       <div class="custom-control custom-checkbox small">
@@ -50,6 +50,7 @@
                 </div>
                 <div class="text-center">
                 <a class="small" href="login-scratch.php">Create an Account!</a> 
+                <div> </div>
                 <a class="small" href="../welcome-page.html">Back to Welcome page</a> 
 
         </div>

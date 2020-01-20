@@ -71,7 +71,7 @@ if(isset($_POST['signup-submit'])){ /*checking if the button nammed "signup-subm
                     mysqli_stmt_bind_param($statement, "sss", $username, $email, $hashedPwd);   /* 3 sss this time because inside our sql variable we have 3 placeholders (?, ?, ?)*/ 
                     /* the password is hashed for security reasons */
                     mysqli_stmt_execute($statement);              
-                    header("Location: ../php/login-scratch.php?signup=success"); 
+                    header("Location: ../php/actual-login.php?signup=success"); 
                     exit(); 
                 }
 
