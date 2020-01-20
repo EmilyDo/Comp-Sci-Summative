@@ -42,7 +42,7 @@ if(isset($_POST['signup-submit'])){
                         exit();    
                     }
                     else{
-                        header("Location: ../attendance-teacher.php?error=invaliduser"); 
+                        header("Location: ../attendance-teacher.php"); 
                         exit();  
                     }
                 }
