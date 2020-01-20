@@ -1,5 +1,5 @@
 <?php
-if(isset($_POST['signin-submit'])){ 
+if(isset($_POST['signup-submit'])){ 
     require 'databaseHandler.inc.php'; 
 
      $username = $_POST['email'];

@@ -3,9 +3,9 @@ if(isset($_POST['signup-submit'])){
     require 'databaseHandler.inc.php'; 
 
      $email = $_POST['email'];
+     $id = 0; 
      $first = "n/a"; 
      $last = "n/a"; 
-     $id = 0; 
      $date = getdate(); 
      $weekday = $date['weekday']; 
 
@@ -13,12 +13,13 @@ if(isset($_POST['signup-submit'])){
             header("Location: ../php/attendance-student.php?error=emptyfields&email=".$email); 
             exit(); 
         }
-        elseif(!($weekday == 'Wednesday' || $weekday == 'Monday' || $weekday == 'Sunday')){
+        elseif(!($weekday == 'Wednesday' || $weekday == 'Monday' )){
             header("Location: ../wrong-day.html?error=wrongdate".$weekday); 
             exit(); 
         }
         elseif(!filter_var($email, FILTER_VALIDATE_EMAIL) || strpos($email, '@ocdsb.ca') == false){ 
             header("Location: ../php/attendance-student.php?error=invalidemail"); 
+            echo "The email entered is invalid."; 
             exit(); 
         }
         else{
@@ -35,6 +36,7 @@ if(isset($_POST['signup-submit'])){
                 $resultCheck = mysqli_stmt_num_rows($statement);  
                 if($resultCheck <= 0){
                     header("Location: ../php/attendance-student.php?error=invaliduser"); 
+                    echo "The email entered is not registered."; 
                     exit();    
                 }
                 else{
@@ -42,18 +44,12 @@ if(isset($_POST['signup-submit'])){
                     $query = "SELECT * FROM 'attendance' where email='$email'"; 
                     $query_run = mysqli_query($conn, $query); 
 
-                    $array = $query_run->fetch_assoc(); 
-                    $id = $user['id']; 
-                    $first = $user['firstName']; 
-                    $last = $user['lastName']; 
+                    while($row = mysqli_fetch_array($query_run)){
+                       $id = $row['id']; 
+                      $first = $row['firstName']; 
+                        $last = $row['lastName']; 
 
-                    
-//                    while($row = mysqli_fetch_array($query_run)){
-  //                      $id = $row['id']; 
-    //                    $first = $row['firstName']; 
-      //                  $last = $row['lastName']; 
-
-//                    }
+                 }
                     
                     $sql = "INSERT INTO attendancehere (id, firstName, lastName, email) VALUES (?, ?, ?, ?)";  
                     $statement = mysqli_stmt_init($conn); 
@@ -63,9 +59,11 @@ if(isset($_POST['signup-submit'])){
                     }
                     else{
                         mysqli_stmt_bind_param($statement, "ssss", $id, $first, $last, $email);    
-                        mysqli_stmt_execute($statement);              
-                        header("Location: ../php/attendance-student.php?signin=success"); 
+                        mysqli_stmt_execute($statement);       
+                        
+                        header("Location: ../welcome-page.html"); 
                         exit(); 
+                    
                     }
     
                 }
@@ -74,9 +72,7 @@ if(isset($_POST['signup-submit'])){
         }
         mysqli_stmt_close($statement); 
         mysqli_close($conn); 
-    
-        header("Location: ../welcome-page.html"); 
-        exit(); 
+
     }
     else{  
         header("Location ../php/attendance-student.php"); 
