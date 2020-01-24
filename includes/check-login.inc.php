@@ -18,7 +18,7 @@ if(isset($_POST['signup-submit'])){
                 exit();    
             }
             else{  
-                mysqli_stmt_bind_param($statement, "s", $email);   
+                mysqli_stmt_bind_param($statement, "s", $username);   
                 mysqli_stmt_execute($statement);              
                 mysqli_stmt_store_result($statement);  
                 
